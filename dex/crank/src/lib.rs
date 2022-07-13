@@ -420,7 +420,7 @@ fn remove_dex_account_padding<'a>(data: &'a [u8]) -> Result<Cow<'a, [u64]>> {
 }
 
 #[cfg(target_endian = "little")]
-fn get_keys_for_market<'a>(
+pub fn get_keys_for_market<'a>(
     client: &'a RpcClient,
     program_id: &'a Pubkey,
     market: &'a Pubkey,
