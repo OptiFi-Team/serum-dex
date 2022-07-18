@@ -33,13 +33,13 @@ num-traits = "0.2.12"
 arrayref = "0.3.6"
 bytemuck = { version = "1.4.0" }
 byteorder = "1.3.4"
+hexdump = "0.1.0"
 
 [lib]
 crate-type = ["cdylib", "lib"]
 
 [dev-dependencies]
 rand = "0.7.3"
-hexdump = "0.1.0"
 proptest = "1.0.0"
 proptest-derive = "0.3.0"
 bumpalo = { version = "3.4.0", features = ["collections"] }

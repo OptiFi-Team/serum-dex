@@ -724,8 +724,7 @@ impl Slab {
         self.remove_by_key(self.get(self.find_max()?)?.key()?)
     }
 
-    #[cfg(test)]
-    fn traverse(&self) -> Vec<&LeafNode> {
+    pub fn traverse(&self) -> Vec<&LeafNode> {
         fn walk_rec<'a>(slab: &'a Slab, sub_root: NodeHandle, buf: &mut Vec<&'a LeafNode>) {
             match slab.get(sub_root).unwrap().case().unwrap() {
                 NodeRef::Leaf(leaf) => {
@@ -749,7 +748,6 @@ impl Slab {
         buf
     }
 
-    #[cfg(test)]
     fn hexdump(&self) {
         println!("Header:");
         hexdump::hexdump(bytemuck::bytes_of(self.header()));
