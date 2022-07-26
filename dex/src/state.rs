@@ -694,7 +694,7 @@ impl OpenOrders {
     }
 
     #[inline]
-    fn orders_with_client_ids(&self) -> impl Iterator<Item = (NonZeroU64, u128, Side)> + '_ {
+    pub fn orders_with_client_ids(&self) -> impl Iterator<Item = (NonZeroU64, u128, Side)> + '_ {
         self.iter_filled_slots().filter_map(move |slot| {
             let client_order_id = NonZeroU64::new(self.client_order_ids[slot as usize])?;
             let order_id = self.orders[slot as usize];
